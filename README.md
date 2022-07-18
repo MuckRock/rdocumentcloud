@@ -146,5 +146,7 @@ TK
     wrapper](https://documentcloud.readthedocs.io/en/latest/)
 -   [DocumentCloud API](https://www.documentcloud.org/help/api)
     documentation
+-   Example package: [Kyle Walker’s
+    tidycensus](https://github.com/walkerke/tidycensus)
 -   *[R Packages: Organize, Test, Document and Share Your
     Code](https://r-pkgs.org/)* by Hadley Wickham
