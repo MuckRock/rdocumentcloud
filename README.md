@@ -6,7 +6,20 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of rdocumentcloud is to …
+The goal of rdocumentcloud is to serve as an R wrapper for the
+DocumentCloud API.
+
+A work in progress.
+
+## To-do list
+
+-   [ ] Align function names/functionality with [Python
+    wrapper](https://documentcloud.readthedocs.io/en/latest/)
+-   [ ] Add function for single document upload
+-   [ ] Better documentation of functions
+-   [ ] Formalize as R package
+-   [ ] Submit to CRAN
+-   [ ] Formal documentation
 
 ## Installation
 
@@ -45,99 +58,38 @@ use GitHub Actions to re-render `README.Rmd` every time you push. An
 example workflow can be found here:
 <https://github.com/r-lib/actions/tree/v1/examples>.
 
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
-
-# R-documentcloud (OLD README BELOW)
-
-R library for DocumentCloud API
-
-Initial code available in an R script. CRAN package TBD.
-
-## To-do list
-
--   [ ] Align function names/functionality with [Python
-    wrapper](https://documentcloud.readthedocs.io/en/latest/)
--   [ ] Add function for single document upload
--   [ ] Better documentation of functions
--   [ ] Formalize as R package
--   [ ] Submit to CRAN
--   [ ] Formal documentation
-
 ## Functions
 
 ### Main functions
 
-#### dc_auth
-
-Function to do initial authentication with DocumentCloud API using
-username and password.
-
 **Usage**
 
 ``` r
-TK
-```
+#Function to do initial authentication with DocumentCloud API using username and password.
+dc_auth('username@email.com', 'my_secret_password')
 
-#### dc_refresh_token
+#Function to refresh authentication tokens.
+dc_refresh_token(TKTK)
 
-Function to refresh authentication tokens.
-
-**Usage**
-
-``` r
-TK
-```
-
-#### upload_documents
-
-Function to perform bulk upload of documents to DocumentCloud. Returns a
-dataframe of paths and destination urls. NOTE: must already be
-authenticated
-
-**Usage**
-
-``` r
+#Function to perform bulk upload of documents to DocumentCloud. Returns a dataframe
+# of paths and destination urls. NOTE: must already be authenticated
 upload_documents(file_names, 208620, unlist(auth_response$refresh))
 ```
 
 ### Utility functions
 
-#### bulk_put_request
-
-Utility function to allow vectorization of multiple requests in a main
-function.
-
 **Usage**
 
 ``` r
-TK
-```
+# Utility function to allow vectorization of multiple requests in a main function.
+bulk_put_request(TKTK)
 
-#### dupe_check
+# Utility function that accepts a dataframe and column to check for duplicates, and renames if a duplicate name is found.
+dupe_check(TKTK)
 
-Utility function that accepts a dataframe and column to check for
-duplicates, and renames if a duplicate name is found.
-
-**Usage**
-
-``` r
-TK
-```
-
-#### check_filetype
-
-Utility function to test for [valid
-filetype](https://www.documentcloud.org/help/tips#file-types-supported).
-
-**Usage**
-
-``` r
-TK
+#Utility function to test for valid filetypes
+#https://www.documentcloud.org/help/tips#file-types-supported
+check_filetype(TKTK)
 ```
 
 ## Sources
