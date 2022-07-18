@@ -1,0 +1,14 @@
+Package: rdocumentcloud
+Title: Upload and edit documents in 'DocumentCloud' with R
+Version: 0.0.0.9000
+Authors@R: 
+    person("Tyler", "Dukes", , "tyler.dukes@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-1618-2761"))
+Description: A simple R wrapper for the 'DocumentCloud' API.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
+Imports: 
+    httr,
+    rvest
