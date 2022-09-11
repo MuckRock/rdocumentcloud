@@ -6,12 +6,15 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The rdocumentcloud package is an R wrapper for the DocumentCloud API.
+The rdocumentcloud package is an R wrapper for the [DocumentCloud
+API](https://www.documentcloud.org/help/api).
 
-[Valid
-filetypes](https://www.documentcloud.org/help/tips#file-types-supported).
+**Note:** This package is currently a work in progress. Want to help?
+Check out our [projects
+page](https://github.com/orgs/MuckRock/projects/2).
 
-A work in progress.
+Currently useful for authenticating and bulk uploading documents to an
+existing DocumentCloud project.
 
 ## Installation
 
@@ -35,7 +38,7 @@ auth_response <- dc_auth('username@email.com', 'my_secret_password')
 #Function to perform bulk upload of documents to DocumentCloud. Returns a dataframe
 # of paths and destination urls. NOTE: must already be authenticated
 upload_documents(file_names, 111111, unlist(auth_response$refresh))
-#> ...BEGINNING UPLOAD AT SEPTEMBER 11, 2022 16:45:44 PM 
+#> ...BEGINNING UPLOAD AT SEPTEMBER 11, 2022 16:51:32 PM 
 #> x  AUTHENTICATION ERROR: 400 
 #> x  EXITING AFTER 0.06 SECONDS
 #> # A tibble: 0 × 2

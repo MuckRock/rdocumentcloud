@@ -18,11 +18,11 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The rdocumentcloud package is an R wrapper for the DocumentCloud API.
+The rdocumentcloud package is an R wrapper for the [DocumentCloud API](https://www.documentcloud.org/help/api).
 
-[Valid filetypes](https://www.documentcloud.org/help/tips#file-types-supported). 
+**Note:** This package is currently a work in progress. Want to help? Check out our [projects page](https://github.com/orgs/MuckRock/projects/2).
 
-A work in progress.
+Currently useful for authenticating and bulk uploading documents to an existing DocumentCloud project.
 
 ## Installation
 
