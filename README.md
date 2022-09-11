@@ -29,20 +29,25 @@ devtools::install_github("MuckRock/rdocumentcloud")
 ## Usage
 
 ``` r
+#load the package into your environment after installing it
 library(rdocumentcloud)
 
-#Function to do initial authentication with DocumentCloud API using username and password.
+#create a list of document paths to upload
+file_names <- c('./path/to/file/document2020_file.pdf', './path/to/file/test_file13.jpg', './path/to/file/public_record.pdf')
+
+#specify a DocumentCloud project ID number where you want to upload documents
+project_id <- 200555
+
+#Authenticate with DocumentCloud API using username and password.
 auth_response <- dc_auth('username@email.com', 'my_secret_password')
 #> x  AUTHENTICATION ERROR: 401
 
-#Function to perform bulk upload of documents to DocumentCloud. Returns a dataframe
+#Bulk upload of documents to DocumentCloud. Returns a dataframe
 # of paths and destination urls. NOTE: must already be authenticated
-upload_documents(file_names, 111111, unlist(auth_response$refresh))
-#> ...BEGINNING UPLOAD AT SEPTEMBER 11, 2022 16:51:32 PM 
+dc_response <- upload_documents(file_names, project_id, unlist(auth_response$refresh))
+#> ...BEGINNING UPLOAD AT SEPTEMBER 11, 2022 17:09:15 PM 
 #> x  AUTHENTICATION ERROR: 400 
-#> x  EXITING AFTER 0.06 SECONDS
-#> # A tibble: 0 × 2
-#> # … with 2 variables: id <chr>, canonical_url <chr>
+#> x  EXITING AFTER 0.035 SECONDS
 ```
 
 <!--## Example
