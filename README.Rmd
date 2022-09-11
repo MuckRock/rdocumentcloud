@@ -35,7 +35,9 @@ devtools::install_github("MuckRock/rdocumentcloud")
 
 ## Usage
 
-```r
+```{r}
+library(rdocumentcloud)
+
 #Function to do initial authentication with DocumentCloud API using username and password.
 auth_response <- dc_auth('username@email.com', 'my_secret_password')
 
