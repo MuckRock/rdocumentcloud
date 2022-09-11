@@ -1,7 +1,13 @@
-#utility function to test for valid filetype
-#https://www.documentcloud.org/help/tips#file-types-supported
-#usage
-#TODO: Add usage
+#' Utility to test for valid filetype
+#'
+#' @param path_list A list of paths to the document
+#'
+#' @return A list of valid extensions according to filetype
+#' @export
+#'
+#' @examples
+#' list_of_paths <- c('not_a_pdf.zip', 'is_a_pdf.pdf', 'is_a_jpeg.jpg')
+#' check_filetype(list_of_paths)
 check_filetype <- function(path_list){
   valid_filetypes <- c('\\.abw$','\\.zabw$','\\.pmd$','\\.pm3$','\\.pm4$','\\.pm5$',
                        '\\.pm6$','\\.p65$','\\.cwk$','\\.agd$','\\.fhd$','\\.kth$',

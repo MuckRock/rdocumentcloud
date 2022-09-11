@@ -1,7 +1,16 @@
-#utility function to refresh authentication tokens
+#' Refresh authentication tokens
+#'
+#' @param refresh_token Content response of refresh toekn request
+#'
+#' @return Response of content request
+#' @export
+#'
+#' @examples
+#' refresh_token <- 'hErE_Is_A_rEfReSh_ToKeN'
+#' refresh_auth <- dc_refresh_token(refresh_token)
 dc_refresh_token <- function(refresh_token){
   #attempt to refresh authentication
-  response <- POST("https://accounts.muckrock.com/api/refresh/",
+  response <- httr::POST("https://accounts.muckrock.com/api/refresh/",
                    body = list(refresh = refresh_token)
   )
 
@@ -10,9 +19,9 @@ dc_refresh_token <- function(refresh_token){
     cat('...REFRESHING AUTHENTICATION\n')
   }
   else{
-    cat('✗  AUTHENTICATION ERROR:', response, '\n')
+    cat('x  AUTHENTICATION ERROR:', response$status_code, '\n')
   }
 
   #return the content of the response
-  return( content(response) )
+  return( httr::content(response) )
 }
