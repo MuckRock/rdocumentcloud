@@ -28,19 +28,16 @@ upload_documents <- function(path_list, project_id, refresh_token){
     return(url_list)
   }
   else{
-    bearer <- paste("Bearer", unlist( refresh_auth$access ) )
+    bearer <- paste("Bearer", unlist( refresh_auth$access ))
 
     #format paths for post request
-    documents <- ## DB: IF statement should go here??
-      if(file.exists(path_list[1])){
-        list(title = path_list, src = path_list) %>%
+    if(dir.exists(path_list)){
+        documents <- list(title = list.files(path_list, full.names = TRUE), src = list.files(path_list, full.names = TRUE)) %>%
         dplyr::as_tibble() %>%
         dplyr::mutate(title = sub('.*/', '', .data$title)) %>%
         dplyr::mutate(projects = list(c(project_id, project_id)))
-      }
-      else{
-        path_list <- list.files(path_list) %>% 
-        list(title = path_list, src = path_list) %>%
+      } else{ 
+        documents <- list(title = path_list, src = path_list) %>%
         dplyr::as_tibble() %>%
         dplyr::mutate(title = sub('.*/', '', .data$title)) %>%
         dplyr::mutate(projects = list(c(project_id, project_id)))
