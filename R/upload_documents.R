@@ -28,13 +28,21 @@ upload_documents <- function(path_list, project_id, refresh_token){
     return(url_list)
   }
   else{
-    bearer <- paste("Bearer", unlist( refresh_auth$access ) )
+    bearer <- paste("Bearer", unlist( refresh_auth$access ))
 
     #format paths for post request
-    documents <- list(title = path_list, src = path_list) %>%
-      dplyr::as_tibble() %>%
-      dplyr::mutate(title = sub('.*/', '', .data$title)) %>%
-      dplyr::mutate(projects = list(c(project_id, project_id)))
+    if(dir.exists(path_list)){
+        documents <- list(title = list.files(path_list, full.names = TRUE), src = list.files(path_list, full.names = TRUE)) %>%
+        dplyr::as_tibble() %>%
+        dplyr::mutate(title = sub('.*/', '', .data$title)) %>%
+        dplyr::mutate(projects = list(c(project_id, project_id)))
+      } else{ 
+        documents <- list(title = path_list, src = path_list) %>%
+        dplyr::as_tibble() %>%
+        dplyr::mutate(title = sub('.*/', '', .data$title)) %>%
+        dplyr::mutate(projects = list(c(project_id, project_id)))
+      }
+    
     #check for valid filetypes
     documents$valid_filetype <- check_filetype(documents$src)
     #clean up titles and if filetype isn't valid, change to NA
